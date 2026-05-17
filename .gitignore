@@ -1,0 +1,38 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache/bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+
+# Local source configuration (may contain private/internal targets)
+sources.txt
+
+# Electron / Node
+electron/node_modules/
+electron/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local data artifacts
+data/cache/
+data/news/
+data/prices/
+
+# Notebook artifacts
+.ipynb_checkpoints/
