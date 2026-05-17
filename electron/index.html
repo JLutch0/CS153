@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Hedge Fund MVP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AI Hedge Fund MVP</h1>
+      <p>Electron desktop app for historical simulation and world-event stock analysis.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Backtest</h2>
+        <div class="row">
+          <label>Start date <input id="startDate" type="date" value="2021-01-01" /></label>
+          <label>End date <input id="endDate" type="date" value="2024-12-31" /></label>
+          <label>Initial cash <input id="initialCash" type="number" value="100000" step="10000" /></label>
+          <button id="runBacktestBtn">Run Backtest</button>
+        </div>
+        <p id="backtestStatus" class="status"></p>
+        <div id="metricsGrid" class="grid"></div>
+      </section>
+
+      <section class="card">
+        <h2>Current World Event Impact</h2>
+        <div class="row">
+          <label>Stock
+            <select id="tickerSelect"></select>
+          </label>
+          <button id="getInsightBtn">Analyze Current Events</button>
+        </div>
+        <p id="insightStatus" class="status"></p>
+        <div id="insightSummary"></div>
+        <h3>Source Headlines</h3>
+        <ul id="headlinesList"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Recent Trace</h2>
+        <pre id="traceOutput">Run a backtest to view latest trace.</pre>
+      </section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
