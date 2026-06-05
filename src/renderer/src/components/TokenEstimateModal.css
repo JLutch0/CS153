@@ -1,0 +1,110 @@
+.te-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.te-modal {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 32px;
+  width: 380px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.te-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #e8e8e8;
+  margin: 0;
+}
+
+.te-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #141414;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.te-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.te-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e8e8e8;
+  letter-spacing: -0.02em;
+}
+
+.te-stat-label {
+  font-size: 11px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.te-divider {
+  width: 1px;
+  height: 36px;
+  background: #2a2a2a;
+}
+
+.te-note {
+  font-size: 12px;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.te-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.te-btn-cancel {
+  padding: 9px 18px;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #888;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.te-btn-cancel:hover {
+  border-color: #555;
+  color: #ccc;
+}
+
+.te-btn-run {
+  padding: 9px 22px;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.te-btn-run:hover {
+  background: #1d4ed8;
+}

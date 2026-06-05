@@ -1,81 +1,44 @@
-# AI Hedge Fund MVP
+# What Lens does:
 
-This project implements a presentation-ready MVP of a multi-agent hedge-fund-style research and trading system in a **historically constrained** simulation environment.
+Lens creates structured scenario analyses for any NASDAQ-listed ticker. For a given stock, it identifies three independent scenarios that could materially affect the company, then deeply analyses each one. Each scenario is evlauted with respect to its causal chain, financial impact, competitive impact, likely stock reaction, and predicted chronological event timeline. Each scenario is run three times and scored for consistency, so you can see how confident the model is in its conclusions. Lens does **not** give financial advice, and is meant to be used exclusively as an educational tool.
 
-## What This MVP Includes
+## AI use disclaimer
 
-- Daily historical replay from `2021-01-01` to `2024-12-31`
-- 10-stock large-cap tech universe
-- Point-in-time price and news gating
-- One research agent (Claude/OpenAI configurable, with rule-based fallback)
-- One balanced-risk trading agent
-- Portfolio simulator with transaction costs (commission + slippage + spread)
-- Evaluation metrics and benchmark comparisons (`SPY`, `QQQ`, random, momentum)
-- Electron desktop app for demo storytelling
-- Source-driven current-event stock impact analysis from `sources.txt`
+Claude code was used for generating app prototyes and getting initial user feedback. It was also used for the final app, where it created the front end, stood up the dev version of the electron app, and help set up the ensemble model. Gemini was used for generating the app icon.
 
-## Project Structure
+## Getting started
 
-- `src/config.py` - symbols, date window, risk limits, model/data config
-- `src/data/` - price/news ingestion and point-in-time snapshotting
-- `src/sim/` - portfolio accounting and historical simulator loop
-- `src/agents/` - research and trading agents
-- `src/agents/ensemble_insights.py` - stock-impact ensemble layer (currently one model)
-- `src/eval/` - metrics and benchmark logic
-- `src/pipeline.py` - end-to-end backtest orchestration
-- `src/data/source_scanner.py` - source scanning and headline ingestion
-- `desktop_bridge.py` - JSON bridge consumed by Electron
-- `electron/` - desktop app frontend and process bridge
-- `sources.txt` - configured world-event sources
-- `run_backtest.py` - CLI entrypoint
+### Prerequisites
 
-## Setup
+- [Node.js](https://nodejs.org/) v18+
+- An [Anthropic API key](https://console.anthropic.com/)
 
-1. Create and activate a virtual environment.
-2. Install dependencies:
+### Install & run
 
-```bash
-pip install -r requirements.txt
-```
-
-3. Copy and fill environment variables:
-
-```bash
-cp .env.example .env
-```
-
-Required/optional keys:
-
-- `LLM_PROVIDER` (`anthropic` or `openai`; defaults to auto-detect based on keys)
-- `ANTHROPIC_API_KEY` (if using Claude)
-- `OPENAI_API_KEY` (if using OpenAI)
-- `FINNHUB_API_KEY` (optional but recommended for company news)
-
-## Run
-
-### CLI backtest
-
-```bash
-python run_backtest.py
-```
-
-### Electron desktop app
-
-```bash
-cd electron
+```powershell
 npm install
-npm start
+npm run dev
 ```
 
-## Point-in-Time Integrity Rules
+On first launch, click the ⚙ icon in the bottom-left and enter your Anthropic API key. It is stored locally and never leaves your machine except in calls to `api.anthropic.com`.
 
-- Data used on each simulation day must have timestamps `<= current_day`
-- Prices are read only up to each replay date
-- News is filtered by publish time before research analysis
-- No forward-filled future events are exposed to agents
+## Usage
 
-## Notes and Limitations
+1. **Search** for a ticker in the main panel (e.g. `AAPL`, `NVDA`)
+2. **Add sources** using the + button in the left sidebar — paste a URL (news article, SEC filing, earnings transcript) or upload a PDF/text file. Analysis without sources relies solely on the model's training data and is more likely to hallucinate.
+3. Click **Analyze**. A token estimate is shown before any API calls are made; confirm to proceed.
+4. Results show three scenario cards. Click any card to read the full analysis.
+5. **Competitor chips** appear below the ticker name — click one to run a fresh analysis on that company.
 
-- Free news APIs may be rate-limited or sparse for older windows.
-- The research agent is intentionally simple for MVP reliability/cost control.
-- This system is educational and not intended for live trading profitability claims.
+## Settings
+
+| Setting | Description |
+|---|---|
+| **API Key** | Your Anthropic key (`sk-ant-...`). Stored in `%APPDATA%\lens\`. |
+| **Knowledge Horizon** | Optional date. When set, the model reasons as if today is that date — useful for backtesting. An approximation; model weights may still contain later knowledge. |
+
+## Development
+
+```powershell
+npm run dev
+```

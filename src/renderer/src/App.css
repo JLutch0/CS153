@@ -1,0 +1,365 @@
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #1c1c1c;
+  border-right: 1px solid #2a2a2a;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 12px;
+  border-bottom: 1px solid #222;
+}
+
+.sidebar-heading {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+}
+
+.sidebar-add-btn {
+  width: 22px;
+  height: 22px;
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #888;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-add-btn:hover {
+  background: #2a2a2a;
+  color: #e8e8e8;
+}
+
+.sidebar-empty {
+  font-size: 12px;
+  color: #444;
+  padding: 12px 16px;
+}
+
+/* ── Source list ── */
+.source-list {
+  list-style: none;
+  padding: 8px 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.source-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin: 1px 6px;
+  transition: background 0.1s;
+}
+
+.source-item:hover {
+  background: #222;
+}
+
+.source-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.source-label {
+  font-size: 12px;
+  color: #bbb;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.session-badge {
+  font-size: 10px;
+  background: #1e293b;
+  color: #64748b;
+  border-radius: 3px;
+  padding: 1px 4px;
+  flex-shrink: 0;
+}
+
+.source-remove {
+  background: transparent;
+  border: none;
+  color: #444;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.1s, color 0.1s;
+}
+
+.source-item:hover .source-remove {
+  opacity: 1;
+}
+
+.source-remove:hover {
+  color: #dc2626;
+}
+
+/* ── Sidebar footer ── */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 12px 16px 0;
+  border-top: 1px solid #222;
+}
+
+.settings-btn {
+  background: transparent;
+  border: none;
+  color: #777;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: color 0.15s;
+  position: relative;
+  line-height: 1;
+}
+
+.settings-btn:hover {
+  color: #bbb;
+}
+
+/* ── Main panel ── */
+.main-panel {
+  flex: 1;
+  min-width: 0;           /* let it shrink below its content size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 40px);
+  gap: 16px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.main-panel--results {
+  justify-content: flex-start;
+  padding: 24px clamp(16px, 3vw, 36px) 40px;
+}
+
+.main-panel--running {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.ticker-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* ── Knowledge horizon banner ── */
+.horizon-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #1a2a1a;
+  border-bottom: 1px solid #2a3a2a;
+  padding: 6px 20px;
+  font-size: 12px;
+  color: #6a9a6a;
+  text-align: center;
+}
+
+/* ── No-key hint ── */
+.no-key-hint {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* ── Settings button warning dot ── */
+.settings-btn-warn {
+  position: relative;
+  color: #888;
+}
+
+.settings-dot {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 5px;
+  height: 5px;
+  background: #f59e0b;
+  border-radius: 50%;
+}
+
+/* ── Scenario preview (complete state) ── */
+.outcome-ticker {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e8e8e8;
+  letter-spacing: -0.02em;
+}
+
+.scenario-preview-list {
+  list-style: none;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scenario-preview-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #1c1c1c;
+  border: 1px solid #252525;
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.scenario-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 4px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.scenario-preview-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin: 0 0 4px;
+}
+
+.scenario-preview-desc {
+  font-size: 12px;
+  color: #777;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Analysis states ── */
+.analysis-running {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.analysis-running-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analysis-ticker-label {
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+  margin: 0;
+}
+
+.analysis-waiting {
+  font-size: 13px;
+  color: #555;
+  animation: pulse-text 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-text {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.analysis-outcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 480px;
+  text-align: center;
+}
+
+.outcome-label {
+  font-size: 15px;
+  color: #e8e8e8;
+}
+
+.outcome-label strong {
+  color: #fff;
+}
+
+.outcome-error {
+  color: #f87171;
+}
+
+.outcome-hint {
+  font-size: 13px;
+  color: #555;
+}
+
+/* ── Analyze button ── */
+.analyze-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.analyze-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.analyze-btn:disabled {
+  background: #1e293b;
+  color: #4b5563;
+  cursor: not-allowed;
+}

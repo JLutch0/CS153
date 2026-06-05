@@ -1,0 +1,65 @@
+.status-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.status-feed::-webkit-scrollbar {
+  width: 4px;
+}
+.status-feed::-webkit-scrollbar-track { background: transparent; }
+.status-feed::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  transition: opacity 0.2s;
+}
+
+.status-item.done {
+  opacity: 0.45;
+}
+
+.status-indicator {
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Animated pulse dot for the active item */
+.status-dot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2563eb;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+.status-check {
+  font-size: 11px;
+  color: #3a6b3a;
+}
+
+.status-text {
+  font-size: 13px;
+  color: #bbb;
+  line-height: 1.4;
+}
+
+.status-item.active .status-text {
+  color: #e8e8e8;
+}

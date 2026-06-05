@@ -1,0 +1,100 @@
+.ticker-search {
+  position: relative;
+  width: 100%;
+}
+
+.ticker-input-wrap {
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  background: #1c1c1c;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ticker-input-wrap:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.ticker-input-wrap.error {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+.ticker-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e8e8e8;
+  font-size: 15px;
+}
+
+.ticker-input::placeholder {
+  color: #555;
+}
+
+.ticker-error {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #dc2626;
+}
+
+/* ── Dropdown ── */
+.ticker-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  list-style: none;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.ticker-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ticker-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ticker-dropdown::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+.ticker-option {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.ticker-option:hover,
+.ticker-option.active {
+  background: #252525;
+}
+
+.ticker-symbol {
+  font-weight: 700;
+  font-size: 13px;
+  color: #e8e8e8;
+  min-width: 56px;
+  flex-shrink: 0;
+}
+
+.ticker-name {
+  font-size: 12px;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

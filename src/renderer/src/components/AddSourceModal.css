@@ -1,0 +1,161 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.modal-tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.modal-tab {
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #888;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.modal-tab.active {
+  color: #e8e8e8;
+  border-bottom-color: #2563eb;
+}
+
+.modal-tab:hover:not(.active) {
+  color: #bbb;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+}
+
+.modal-close:hover {
+  color: #e8e8e8;
+  background: #2a2a2a;
+}
+
+/* ── Body ── */
+.modal-body {
+  padding: 20px;
+}
+
+/* URL tab */
+.url-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.url-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #e8e8e8;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.url-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.url-input.error {
+  border-color: #dc2626;
+}
+
+.url-error {
+  font-size: 12px;
+  color: #dc2626;
+}
+
+.modal-add-btn {
+  align-self: flex-end;
+  padding: 8px 20px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.modal-add-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Upload tab */
+.drop-zone {
+  border: 1px dashed #333;
+  border-radius: 10px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+  border-color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.drop-icon {
+  font-size: 28px;
+  color: #555;
+}
+
+.drop-label {
+  font-size: 14px;
+  color: #bbb;
+  font-weight: 500;
+}
+
+.drop-hint {
+  font-size: 12px;
+  color: #555;
+}
